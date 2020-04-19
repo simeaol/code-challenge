@@ -1,2 +1,2 @@
 # hackerrank
-Challenges made on hackerrank
+Challenges from hackerranck, leet code, etc
