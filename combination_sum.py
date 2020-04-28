@@ -2,10 +2,24 @@ from copy import deepcopy
 
 def combinationSum(candidates, target):
         res = []
-        helper(candidates, target, 0, [], res)
+        helper(candidates, target, [], res)
         return res
         
-def helper(candidates, target, start, buf, res):
+def helper(candidates, target, buf, res):
+    if target == 0:
+        res.append(deepcopy(buf))
+        return
+    if target < 0:
+        return
+    for i, value in enumerate(candidates): # for i, el in enumerate(candidates)
+        print(f'arr[i]={value},i={i},target={target}')
+        if value > target:
+             continue
+        buf.append(value)
+        helper(candidates, target-value, buf, res)
+        buf.pop()
+'''
+def helper(candidates, target, start=0, buf, res):
     if target == 0:
         res.append(deepcopy(buf))
         return
@@ -17,10 +31,10 @@ def helper(candidates, target, start, buf, res):
         buf.append(candidates[i])
         helper(candidates, target-candidates[i], i, buf, res)
         buf.pop()
-
+'''
 if __name__ == "__main__":
-    arr = [2,3,6,7]
-    target = 7
+    arr = [2,4,6]
+    target = 4
     result = combinationSum(arr, target)
     print("result: {}".format(result))
 
