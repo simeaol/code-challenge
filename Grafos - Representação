@@ -1,0 +1,81 @@
+					' Sobre Grafos:'
+					'--------------'
+
+Qual é a vantagem ou desvantagem de representar grafo em matriz de adjacência ou lista de adjacência.
+
+Grafo Denso (quando tem muita conexão entre vertices)
+	Melhor: Matriz-> matriz já está em memória mesmo,logo gasto é apenas o incial(inic. matriz)
+	Pior: Lista -> gasto de memória, alocação de memória para armazenar o ponteiro do sucessor
+
+Busca:
+	Melhor: Lista -> cada nó já possui uma lista de adjacência dos vertices conectados a ele
+	Pior: Matriz -> Precisa percorer a lista interna de matriz, logo quanto mais denso 				vertices, mas elementos a percorrer
+
+
+Testar existência de uma aresta:
+	Melhor: Matriz -> Basta olhar no a linha x coluna para verificar se existe conexões. 				  Peso ou 1=existe e 0=não existe
+	Pior: Lista -> Precisa percorer toda a lista para verificar se o nó tem o vertice que 				indicaria aresta entre eles
+
+Encontrar predecessores (quem vem antes de um dado elemento/vertice)
+	Melhor: Matriz -> Basta percorer a coluna da matriz
+	Pior: Lista -> precisa percorrer a lista de adjacênciade todos os demais nós para encontar
+
+
+
+
+
+DFS -> (Depht First Search): 
+
+	Método: Defina um nó incial
+		Enquanto este não for um objectivo ou final(nó cuja adjacência já tenha sido toda visitada)
+			Escolha um de seus adjacentes ainda não visitado 
+			Visita-o
+		Se nó final não objetivo:
+			Volte ao Pai deste 
+			Se houver pai, repita. Senão escolha outro nó inicial
+
+
+
+
+
+
+BFS -> (Breadth First Search): Determina a distância (em número de arestas) de cada vértice atingível do grafo x.
+       Os nós a serem visitados são colocados em uma FILA, inicialmente contendo apenas o nó incial.
+       Na medida em que visita-se um nó, coloca-se seus vizinhos na fila, mas somente se não estiverem lá.
+       Continua até achar o nó alvo da busca ou a fila ficar vazia
+       Se a fila estiver vazia e ainda restam nós não visitados, incia-se o procedimento a partir de um destes.
+
+
+  	Método: Defina um nó inicial, marcando com explorado
+		Enfileire-o (bota ele na FILA)
+		Enquanto a fila não estiver vazia:
+			Remova o 1(primeiro) elemento nó da FILA, u
+			Para cada vizinho v de u:
+				Se v não explorado:
+					Marque v como explorado
+					Coloque v no fim da FILA
+		Repita de outro nó inicial, se houver
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
